@@ -38,7 +38,11 @@ namespace SingleResponsibilityPrinciple
                 logger.LogWarning("Trade amount is below 1000: '{0}'", tradeData[1]);
                 return false;
             }
-
+            if (tradeAmount > 100001)
+            {
+                logger.LogWarning("Trade amount is below 100001: '{0}'", tradeData[1]);
+                return false;
+            }
 
             decimal tradePrice;
             if (!decimal.TryParse(tradeData[2], out tradePrice))
